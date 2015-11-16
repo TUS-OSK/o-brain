@@ -8,6 +8,7 @@
       d:DesignHeight="800" d:DesignWidth="1200"
       Title="TopPage">
     <Grid>
-        
+        <TextBlock Width="800" Height="200" Text="TopPage" TextAlignment="Center" Margin="204,10,196,590"></TextBlock>
+        <TextBlock Name="Block" Width="500" Height="500"></TextBlock>
     </Grid>
 </Page>

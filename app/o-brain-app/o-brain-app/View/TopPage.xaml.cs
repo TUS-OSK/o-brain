@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Speech.Recognition;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SpeechLib;
 
 namespace o_brain_app.View
 {
@@ -20,9 +9,16 @@ namespace o_brain_app.View
     /// </summary>
     public partial class TopPage : Page
     {
+        private SpeechRecognizer _reco = new SpeechRecognizer();
         public TopPage()
         {
             InitializeComponent();
+            _reco.LoadGrammar(new DictationGrammar());
+            _reco.SpeechRecognized += (s, e) =>
+            {
+                Block.Text += e.Result.Text;
+            };
         }
+
     }
 }
